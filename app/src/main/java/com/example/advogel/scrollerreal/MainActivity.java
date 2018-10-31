@@ -1,5 +1,7 @@
+
 package com.example.advogel.scrollerreal;
 
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     Button q6;
     Button q7;
 
+    Snackbar snack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         q5 = (RadioButton) findViewById(R.id.radioButton52); //2
         q6 = (RadioButton) findViewById(R.id.radioButton61); //1
         q7 = (RadioButton) findViewById(R.id.radioButton71); //1
-
+        snack = Snackbar.make(findViewById(R.id.parent),"",Snackbar.LENGTH_LONG);
     }
 
     public void score(View view){
@@ -52,7 +55,9 @@ public class MainActivity extends AppCompatActivity {
         if(q7.isSelected())
             correct++;
 
-            b.setText(correct+"/7");
+        snack.setText(correct + "/7");
+        snack.show();
+
 
     }
 }
